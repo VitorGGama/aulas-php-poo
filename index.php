@@ -8,40 +8,30 @@
     <title>Exemplo 3</title>
 </head>
 <body>
-    <h1>PHP com POO - Exemplo 2</h1>
+    <h1>PHP com POO - Exemplo 4</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Método construtor com atribuição obrigatória de valores ao parametros/propriedades 
-            do objeto      
+        <li>Encapsulamento      
         </li>
         <li>Uso do <code>$this</code> para acesso ás propriedades dentro do objeto</li>
     </ul>
 
     <?php
     require_once "src/Cliente.php";
-    $clienteA = new Cliente("Fulano", "fulano@gmail.com");
-    $clienteB = new Cliente("Ozzy", "ozzyo@gmail.com");
-
-    $clienteA ->telefones = ["11-2135-0300"]
-    ?>
-<pre><?=var_dump($clienteA, $clienteB)?></pre>
+    $clienteA = new Cliente;
     
-=======
-    <title>Exemplo 4 </title>
-</head>
-<body>
-    <h1>PHP com POO - Exemplo 4</h1>
-    <hr>
-    <h2>Assuntos abordados:</h2>
-    <ul>
-        <li>Encapsulamento</li>
-        <li>Modificadores de visibiladade</li>
-    </ul>
-    <?php
-    require_once "src"
+    //$clienteA->nome = "Vitor";
 
->>>>>>> Stashed changes
+  /*Usando o setter para atribuir um valor à propriedade privada "nome"*/ 
+  $clienteA->setNome("Fulano da Silva");
+    ?>
+
+    <pre><?=var_dump($clienteA)?></pre>
+
+    
+
+   
 
 </body>
 </html>
