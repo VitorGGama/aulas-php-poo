@@ -6,32 +6,14 @@
     <title>Exemplo 4</title>
 </head>
 <body>
-    <h1>PHP com POO - Exemplo 4</h1>
+    <h1>PHP com POO - Exemplo 5</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Encapsulamento</li>
-        <li>Modificadores de visibilidade 
-        (public, private e protected)</li>
+        <li>Herança (Super classe e sub-classe)</li>
+
     </ul>
 
-<?php
-require_once "src/Cliente.php";
-$clienteA = new Cliente;
-
-/* O código abaixo dará erro pois
-a propriedade é privada! */
-//$clienteA->nome = "Tiago";
-
-/* Usando o setter para atribuir um valor 
-à propriedade privada "nome" */
-$clienteA->setNome("Fulano da Silva");
-
-?>
-<!-- Usando o getter para ler/acessar dados privados -->
-<p>Nome: <?=$clienteA->getNome()?></p>
-
-<pre> <?=var_dump($clienteA)?> </pre>
 
 
 </body>
