@@ -4,6 +4,7 @@ class Cliente {
     private string $nome;
     private string $email; 
     private string $senha;
+    private string $situacao = "a definir";
    
     /* Métodos getters e setters */
     public function setNome(string $nome):void {
@@ -14,50 +15,35 @@ class Cliente {
         return $this->nome;
     }
 
-    /**
-     * Get the value of email
-     *
-     * @return string
-     */
-    public function getEmail(): string
-    {
+    public function setEmail(string $email):void {
+        $this->email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    }
+
+    public function getEmail():string {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     *
-     * @param string $email
-     *
-     * @return self
-     */
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
+    public function setSenha(string $senha):void {
+        $this->senha = password_hash($senha, PASSWORD_DEFAULT);
     }
 
-    /**
-     * Get the value of senha
-     *
-     * @return string
-     */
-    public function getSenha(): string
-    {
+    public function getSenha():string {
         return $this->senha;
     }
 
-    /**
-     * Set the value of senha
-     *
-     * @param string $senha
-     *
-     * @return self
-     */
-    public function setSenha(string $senha): self
+    /* Visibilidade protected
+    Estes getters e setters poderão ser usados APENAS
+    aqui (classe Cliente) e nas subclasses 
+    (PessoaFisica e PessoaJuridica) */ 
+    protected function getSituacao(): string
     {
-        $this->senha = $senha;
+        return $this->situacao;
+    }
+
+
+    protected function setSituacao(string $situacao): self
+    {
+        $this->situacao = $situacao;
 
         return $this;
     }

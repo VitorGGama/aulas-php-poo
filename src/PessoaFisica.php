@@ -3,22 +3,16 @@ require_once "Cliente.php";
 class PessoaFisica extends Cliente {
     private int $idade;
     private string $cpf;
+
+    public function __construct(){
+        $this->setSituacao("normal");
+    }
     
-
-
-      
-     
     public function getIdade(): int
     {
         return $this->idade;
     }
 
-     
-     
-     
-     
-    
-     
     public function setIdade(int $idade): self
     {
         $this->idade = $idade;
@@ -26,23 +20,11 @@ class PessoaFisica extends Cliente {
         return $this;
     }
 
-    /**
-     * Get the value of cpf
-     *
-     * @return string
-     */
     public function getCpf(): string
     {
         return $this->cpf;
     }
 
-    /**
-     * Set the value of cpf
-     *
-     * @param string $cpf
-     *
-     * @return self
-     */
     public function setCpf(string $cpf): self
     {
         $this->cpf = $cpf;
