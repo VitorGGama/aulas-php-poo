@@ -25,4 +25,28 @@ class PessoaFisica extends Cliente {
 
         return $this;
     }
+
+    /**
+     * Get the value of cpf
+     *
+     * @return string
+     */
+    public function getCpf(): string
+    {
+        return $this->cpf;
+    }
+
+    /**
+     * Set the value of cpf
+     *
+     * @param string $cpf
+     *
+     * @return self
+     */
+    public function setCpf(string $cpf): self
+    {
+        $this->cpf = $cpf;
+
+        return $this;
+    }
 }

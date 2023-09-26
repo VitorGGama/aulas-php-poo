@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 4</title>
+    <title>Exemplo 5</title>
 </head>
 <body>
     <h1>PHP com POO - Exemplo 5</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Herança (Super classe e sub-classe)</li>
-
+        <li>Herança (Super Classe e Sub Classe)</li>
     </ul>
-    <?php
-    require_once "src/PessoaFisica.php";
-    $clientePF = new PessoaFisica;
-    ?>
 
-    <pre><?=var_dump($clientePF)?></pre>
+<?php
+require_once "src/PessoaFisica.php";
+require_once "src/PessoaJuridica.php";
 
+$clientePF = new PessoaFisica;
+$clientePJ = new PessoaJuridica;
+
+$clientePF->setNome("Fulano");
+$clientePF->setEmail("fulano@gmail.com");
+$clientePF->setIdade(20);
+$clientePF->setCpf("123.456.789-00");
+
+$clientePJ->setNome("Beltrano S/A");
+$clientePJ->setEmail("blabla@gmail.com");
+$clientePJ->setAnoFundacao(2000);
+$clientePJ->setCnpj("32.088.0001/000.41");
+$clientePJ->setNomeFantasia("Bla Bla Informática");
+?>
+
+<pre> <?=var_dump($clientePF, $clientePJ)?> </pre>
 
 
 </body>
