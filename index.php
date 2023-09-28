@@ -41,7 +41,6 @@
     <section> <?=$clientePF->exibirDados()?>  </section>
    
  <!-- Saída do cliente Pessoa fisíca -->
-
     <section> <?=$clientePJ->exibirDados()?>  </section>
 
 
