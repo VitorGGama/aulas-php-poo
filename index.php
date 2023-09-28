@@ -8,45 +8,41 @@
 </head>
 
 <body>
-    <h1>PHP com POO - Exemplo 6</h1>
+    <h1>PHP com POO - Exemplo 8</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Polimorfismo</li>
-        <li>Sobreposição de métodos</li>
-        <li>Uso do <code>parent</code> para acessar superclasse.</li>
-    </ul>
-    
+        <li>Propriedades e métodos estáticos</li>
+        <li>Acesso direto sem objetos/instancias</li>
+        <li>Uso do <code>self</code> para acesso (dentro da classe) aos recursos estáticos.</li>
+    </ul>   
+   
 
     <?php
     require_once "src/PessoaFisica.php";
-    require_once "src/PessoaJuridica.php";
+    $cliente1 = new PessoaFisica;
+    $cliente1->setNome("Astrogildo");
+    $cliente1->setIdade(75);
 
-    $clientePF = new PessoaFisica;
-    $clientePJ = new PessoaJuridica;
-
-    $clientePF->setNome("Fulano");
-    $clientePF->setEmail("fulano@gmail.com");
-    $clientePF->setIdade(20);
-    $clientePF->setCpf("123.456.789-00");
+    $cliente2 = new PessoaFisica;
+    $cliente2->setNome("Enzo");
+    $cliente2->setIdade(18);
 
 
-    $clientePJ->setNome("Beltrano S/A");
-    $clientePJ->setEmail("blabla@gmail.com");
-    $clientePJ->setAnoFundacao(2000);
-    $clientePJ->setCnpj("32.088.0001/000.41");
-    $clientePJ->setNomeFantasia("Bla Bla Informática");
+    require_once "src/utilitarios.php";
+    Utilitarios::obterData();
     ?>
 
-    <hr>
+    <h2>Atendimentos do dia:
+    <?=Utilitarios::$dataAtual?></h2>
 
-    <h2>Saída de dados</h2>
+    <h3>cliente: <?=$cliente1->getNome()?></h3>
+    <p>Tipo de atendimento: <?=Utilitarios::definirAtendimento( $cliente1->getIdade())?></p>
+    
+    <h3>cliente: <?=$cliente2->getNome()?></h3>
+    <p>Tipo de atendimento: <?=Utilitarios::definirAtendimento( $cliente2->getIdade())?></p>
+    
 
- <!-- Saída do cliente Pessoa Juridica -->
-    <section> <?=$clientePF->exibirDados()?>  </section>
-   
- <!-- Saída do cliente Pessoa fisíca -->
-    <section> <?=$clientePJ->exibirDados()?>  </section>
 
 
 
