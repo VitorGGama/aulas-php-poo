@@ -12,13 +12,14 @@
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Composer: gerenciador de dependência PHP<li>
+        <li>Composer: gerenciador de dependência PHP
+        <li>
         <li>Configurar o projeto com Composer usando <code>composer.json</code></li>
         <li>Autoload de classes evitando muitos requires e/ou require manuais</li>
     </ul>
 
-    
-    <?php   
+
+    <?php
 
     use Fornecedor\Pagamento;
     use Prestador\Pagamento as PrestadorPagamento;
@@ -26,25 +27,31 @@
     use Tabajara\PessoaFisica;
     use Tabajara\PessoaJuridica;
 
-    require_once "src/fornecedores/Pagamento.php";
-    require_once "src/prestadores/Pagamento.php";
+    //require_once "src/fornecedores/Pagamento.php";
+    //require_once "src/prestadores/Pagamento.php";
+    //require_once "src/PessoaFisica.php";
+    //require_once "src/PessoaJuridica.php";
+    //require_once "src/MEI.php";
+    require_once "vendor/autoload.php"; 
+
+
 
     $pagamentoFornecedor = new Pagamento;
     $pagamentoPrestador = new PrestadorPagamento;
 
-    require_once "src/PessoaFisica.php";
+
     $pessoaFisica = new PessoaFisica;
     $pessoaFisica->setNome("Vitor");
     $pessoaFisica->setCPF("234.567.897-56");
     $pessoaFisica->setIdade(40);
 
-    require_once "src/PessoaJuridica.php";
+
     $pessoaJuridica = new PessoaJuridica;
     $pessoaJuridica->setNome("Empresa XYZ");
     $pessoaJuridica->setCNPJ("12.345.678/0001-99");
     $pessoaJuridica->setEmail("consultoria@consultoria.com");
 
-    require_once "src/MEI.php";
+
     $mei = new MEI;
     $mei->setAreaDeAtuacao("MEI ABC");
     $mei->setCNPJ("98.765.432/0001-11");
