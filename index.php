@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo 9</title>
 </head>
+
 <body>
     <h1>PHP com POO - Exemplo 9</h1>
     <hr>
@@ -15,31 +17,35 @@
         <li>Configurar e usar <code>namespaces</code> e <code>alias</code></li>
     </ul>
 
-<?php
-/* Só de fazer o require/importação das classes (SEM NAMESPACE),
+    <?php
+    /* Só de fazer o require/importação das classes (SEM NAMESPACE),
 já dá erro no servidor devido a terem o mesmo nome. */
-require_once "src/fornecedores/Pagamento.php";
-require_once "src/prestadores/Pagamento.php";
 
-// Forma 1 de usar classes com namespaces
-//$pagamentoFornecedor = new Fornecedor\Pagamento;
-//$pagamentoPrestador = new Prestador\Pagamento;
+    use Fornecedor\Pagamento;
+    use Prestador\Pagamento as PrestadorPagamento;
 
-//Forma 2 de usar classes com namesspaces
+    require_once "src/fornecedores/Pagamento.php";
+    require_once "src/prestadores/Pagamento.php";
 
-use Fornecedor\Pagamento;
-use Prestador\Pagamento as PrestadorPagamento;
+    // Forma 1 de usar classes com namespaces
+    // $pagamentoFornecedor = new Fornecedor\Pagamento;
+    // $pagamentoPrestador = new Prestador\Pagamento;
 
-$pagamentoFornecedor = new Pagamento;
-$pagamentoPrestador = new PrestadorPagamento;
+    // Forma 2 de usar classes com namespaces
+    // use Fornecedor\Pagamento;
+    // use Prestador\Pagamento as PrestadorPagamento; // ALIAS (APELIDO)
 
+    // $pagamentoFornecedor = new Pagamento;
+    // $pagamentoPrestador = new PrestadorPagamento; // objeto através do alias
 
+    $pagamentoFornecedor = new Pagamento;
+    $pagamentoPrestador = new PrestadorPagamento;
+    ?>
 
-?>
-
-<pre><?=var_dump($pagamentoFornecedor)?></pre>
-<pre><?=var_dump($pagamentoPrestador)?></pre>
+    <pre><?= var_dump($pagamentoFornecedor) ?></pre>
+    <pre><?= var_dump($pagamentoPrestador) ?></pre>
 
 
 </body>
+
 </html>
