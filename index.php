@@ -18,65 +18,53 @@
     </ul>
 
     <?php
-    /* Só de fazer o require/importação das classes (SEM NAMESPACE),
-já dá erro no servidor devido a terem o mesmo nome. */
+    // Seus códigos PHP aqui
 
     use Fornecedor\Pagamento;
     use Prestador\Pagamento as PrestadorPagamento;
-
-    // Use individual (um pra cada classe)
-    // use Tabajara\MEI;
-    // use Tabajara\PessoaFisica;
-    // use Tabajara\PessoaJuridica;
-
-    // Use com uma lista de classes
-    use Tabajara\{MEI, PessoaFisica as PF, PessoaJuridica as PJ};
+    use Tabajara\MEI;
+    use Tabajara\PessoaFisica;
+    use Tabajara\PessoaJuridica;
 
     require_once "src/fornecedores/Pagamento.php";
     require_once "src/prestadores/Pagamento.php";
 
-    // Forma 1 de usar classes com namespaces
-    // $pagamentoFornecedor = new Fornecedor\Pagamento;
-    // $pagamentoPrestador = new Prestador\Pagamento;
-
-    // Forma 2 de usar classes com namespaces
-    // use Fornecedor\Pagamento;
-    // use Prestador\Pagamento as PrestadorPagamento; // ALIAS (APELIDO)
-
-    // $pagamentoFornecedor = new Pagamento;
-    // $pagamentoPrestador = new PrestadorPagamento; // objeto através do alias
-
     $pagamentoFornecedor = new Pagamento;
     $pagamentoPrestador = new PrestadorPagamento;
-    ?>
 
-    <pre><?= var_dump($pagamentoFornecedor) ?></pre>
-    <pre><?= var_dump($pagamentoPrestador) ?></pre>
-
-    <hr>
-
-    <!-- Exercícios: 
-- Crie objetos cliente PF, cliente PJ e cliente MEI 
-- Coloque alguns dados usando setters
-- Exiba alguns dados no HTML
--->
-
-    <?php
     require_once "src/PessoaFisica.php";
+    $pessoaFisica = new PessoaFisica;
+    $pessoaFisica->setNome("Vitor");
+    $pessoaFisica->setCPF("234.567.897-56");
+    $pessoaFisica->setIdade(40);
+
     require_once "src/PessoaJuridica.php";
+    $pessoaJuridica = new PessoaJuridica;
+    $pessoaJuridica->setNome("Empresa XYZ");
+    $pessoaJuridica->setCNPJ("12.345.678/0001-99");
+    $pessoaJuridica->setEmail("consultoria@consultoria.com");
+
     require_once "src/MEI.php";
-
-    $clientePF = new PF;
-    $clientePJ = new PJ;
-    $clienteMEI = new MEI;
-
-    $clientePF->setNome("Beltrano");
-    $clientePJ->setNomeFantasia("Poeira em alto mar");
-    $clienteMEI->setAreaDeAtuacao("TI");
+    $mei = new MEI;
+    $mei->setAreaDeAtuacao("MEI ABC");
+    $mei->setCNPJ("98.765.432/0001-11");
+    $mei->setAreaDeAtuacao("Comércio de Produtos");
     ?>
-    <p>Cliente: <?= $clientePF->getNome() ?></p>
 
+    <h2>Dados do Cliente Pessoa Física</h2>
+    <p>Nome: <?php echo $pessoaFisica->getNome(); ?></p>
+    <p>CPF: <?php echo $pessoaFisica->getCPF(); ?></p>
+    <p>Idade: <?php echo $pessoaFisica->getIdade(); ?></p>
 
+    <h2>Dados do Cliente Pessoa Jurídica</h2>
+    <p>Nome: <?php echo $pessoaJuridica->getNome(); ?></p>
+    <p>CNPJ: <?php echo $pessoaJuridica->getCNPJ(); ?></p>
+    <p>Email: <?php echo $pessoaJuridica->getEmail(); ?></p>
+
+    <h2>Dados do Cliente MEI</h2>
+    <p>Área de Atuação: <?php echo $mei->getAreaDeAtuacao(); ?></p>
+    <p>CNPJ: <?php echo $mei->getCNPJ(); ?></p>
+    <p>Área de Atuação: <?php echo $mei->getAreaDeAtuacao(); ?></p>
 </body>
 
 </html>
