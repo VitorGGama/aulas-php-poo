@@ -12,8 +12,7 @@
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Composer: gerenciador de dependência PHP
-        <li>
+        <li>Composer: gerenciador de dependência PHP</li>
         <li>Configurar o projeto com Composer usando <code>composer.json</code></li>
         <li>Autoload de classes evitando muitos requires e/ou require manuais</li>
     </ul>
@@ -23,6 +22,7 @@
 
     use Fornecedor\Pagamento;
     use Prestador\Pagamento as PrestadorPagamento;
+    use Tabajara\Escola;
     use Tabajara\MEI;
     use Tabajara\PessoaFisica;
     use Tabajara\PessoaJuridica;
@@ -32,7 +32,7 @@
     //require_once "src/PessoaFisica.php";
     //require_once "src/PessoaJuridica.php";
     //require_once "src/MEI.php";
-    require_once "vendor/autoload.php"; 
+    require_once "vendor/autoload.php";
 
 
 
@@ -72,6 +72,14 @@
     <p>Área de Atuação: <?php echo $mei->getAreaDeAtuacao(); ?></p>
     <p>CNPJ: <?php echo $mei->getCNPJ(); ?></p>
     <p>Área de Atuação: <?php echo $mei->getAreaDeAtuacao(); ?></p>
+
+    <hr>
+
+    <?php
+    $escola = new Escola;
+    var_dump($escola);
+
+    ?>
 </body>
 
 </html>
