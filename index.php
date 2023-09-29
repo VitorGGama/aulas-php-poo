@@ -24,6 +24,14 @@ já dá erro no servidor devido a terem o mesmo nome. */
     use Fornecedor\Pagamento;
     use Prestador\Pagamento as PrestadorPagamento;
 
+    // Use individual (um pra cada classe)
+    // use Tabajara\MEI;
+    // use Tabajara\PessoaFisica;
+    // use Tabajara\PessoaJuridica;
+
+    // Use com uma lista de classes
+    use Tabajara\{MEI, PessoaFisica as PF, PessoaJuridica as PJ};
+
     require_once "src/fornecedores/Pagamento.php";
     require_once "src/prestadores/Pagamento.php";
 
@@ -44,6 +52,29 @@ já dá erro no servidor devido a terem o mesmo nome. */
 
     <pre><?= var_dump($pagamentoFornecedor) ?></pre>
     <pre><?= var_dump($pagamentoPrestador) ?></pre>
+
+    <hr>
+
+    <!-- Exercícios: 
+- Crie objetos cliente PF, cliente PJ e cliente MEI 
+- Coloque alguns dados usando setters
+- Exiba alguns dados no HTML
+-->
+
+    <?php
+    require_once "src/PessoaFisica.php";
+    require_once "src/PessoaJuridica.php";
+    require_once "src/MEI.php";
+
+    $clientePF = new PF;
+    $clientePJ = new PJ;
+    $clienteMEI = new MEI;
+
+    $clientePF->setNome("Beltrano");
+    $clientePJ->setNomeFantasia("Poeira em alto mar");
+    $clienteMEI->setAreaDeAtuacao("TI");
+    ?>
+    <p>Cliente: <?= $clientePF->getNome() ?></p>
 
 
 </body>
